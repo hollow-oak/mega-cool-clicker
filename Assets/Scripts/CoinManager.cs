@@ -21,12 +21,11 @@ public class CoinManager : MonoBehaviour
     }
     public void OnCoinClicked()
     {
-        CoinSFX.Play();
         AddCoin();
     }
     public void AddCoin()
     {
-        TotalCoin += 10;
+        TotalCoin += 50;
         CoinSFX.Play();
     }
 }

@@ -13,7 +13,7 @@ public class ShopManager : MonoBehaviour
 
     [Header("Shop Items")]
     public GameObject FactoryObject;
-    public Button FactoryButton;
+    public GameObject FactoryButtonText;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,9 +37,10 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
+            CoinManager.TotalCoin -= 100;
             FactoryObject.SetActive(true); //passive coin gain starts
             purchaseSFX.Play();
-            FactoryButton.GetComponent<TextMeshProUGUI>().text = "UPGRADE";
+            FactoryButtonText.GetComponent<TextMeshProUGUI>().text = "UPGRADE";
             boughtFactory = true;
             shopPanel.SetActive(false);
         }
