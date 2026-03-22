@@ -1,17 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
     public GameObject shopPanel;
+    public bool boughtFactory;
+    [SerializeField] AudioSource purchaseSFX;
+    CoinManager coinManager;
+
+    [Header("Shop Items")]
+    public GameObject FactoryObject;
+    public Button FactoryButton;
     // Start is called before the first frame update
     void Start()
     {
         shopPanel.SetActive(false);
+        FactoryObject.SetActive(false);
+        boughtFactory = false;
     }
     public void OnShopClicked()
     {
         shopPanel.SetActive(true);
+    }
+    public void CloseShop()
+    {
+        shopPanel.SetActive(false);
+    }
+    public void OnFactoryBuy()
+    {
+        if (boughtFactory == true)
+        {
+            
+        }
+        else
+        {
+            FactoryObject.SetActive(true); //passive coin gain starts
+            purchaseSFX.Play();
+            FactoryButton.GetComponent<TextMeshProUGUI>().text = "UPGRADE";
+            boughtFactory = true;
+            shopPanel.SetActive(false);
+        }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CoinGenerator : MonoBehaviour
 {
+    public GameObject SmallCoin;
     public GameObject BronzeCoin;
     public GameObject SilverCoin;
     public GameObject GoldCoin;
@@ -11,7 +12,7 @@ public class CoinGenerator : MonoBehaviour
 
     void Start()
     {
-        item = BronzeCoin;
+        item = SmallCoin;
         StartCoroutine(SpawnCoroutine());
     }
     IEnumerator SpawnCoroutine()

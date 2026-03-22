@@ -6,7 +6,9 @@ using UnityEngine;
 public class CoinManager : MonoBehaviour
 {
     public static int TotalCoin;
+    public int CoinPerMinute;
     public GameObject TotalMoneyText;
+    public GameObject CoinPerMinuteText;
 
     [SerializeField] AudioSource CoinSFX;
     void Start()
