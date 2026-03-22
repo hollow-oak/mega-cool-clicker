@@ -1,24 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
-    public int TotalCoin;
+    public static int TotalCoin;
+    public GameObject TotalMoneyText;
 
     [SerializeField] AudioSource CoinSFX;
     void Start()
     {
-        
+        TotalCoin = 0;
     }
-
-    void Update()
+    private void Update()
     {
-        
+        TotalMoneyText.GetComponent<TextMeshProUGUI>().text = "$" + TotalCoin;
     }
     public void OnCoinClicked()
     {
         CoinSFX.Play();
-        TotalCoin += 50;
+        AddCoin();
+    }
+    public void AddCoin()
+    {
+        TotalCoin += 10;
+        CoinSFX.Play();
     }
 }
