@@ -7,17 +7,17 @@ public class CoinGenerator : MonoBehaviour
     public GameObject BronzeCoin;
     public GameObject SilverCoin;
     public GameObject GoldCoin;
+    public GameObject item;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        
+        item = BronzeCoin;
+        StartCoroutine(SpawnCoroutine());
     }
-
-    // Update is called once per frame
-    void Update()
+    IEnumerator SpawnCoroutine()
     {
-        
+        WaitForSeconds waitTime = new WaitForSeconds(2);
+        Instantiate(item);
+        yield return waitTime;
     }
 }
