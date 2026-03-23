@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class CoinSilver : MonoBehaviour
 {
+    CoinManager coinManager;
+    [SerializeField] GameObject obj;
+    void Start()
+    {
+        coinManager = obj.GetComponent<CoinManager>();
+    }
     public void OnClicked()
     {
-        Debug.Log("Silver Coin clicked!!!");
-        CoinManager.TotalCoin += 100;
+        Debug.Log("Silver Coin Clicked!!!");
+        coinManager.AddCoin(100);
         Destroy(gameObject);
     }
 }

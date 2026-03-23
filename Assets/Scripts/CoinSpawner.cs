@@ -10,7 +10,7 @@ public class CoinSpawner : MonoBehaviour
     public GameObject GoldCoin;
 
     public RectTransform spawnArea;
-    public float Radius;
+
     void Start()
     {
         StartCoroutine(SpawnCoin(SmallCoin, 1));
@@ -18,19 +18,19 @@ public class CoinSpawner : MonoBehaviour
         StartCoroutine(SpawnCoin(SilverCoin, 3));
         StartCoroutine(SpawnCoin(GoldCoin, 4));
     }
-
-    // Update is called once per frame
-    void Update()
+    public Vector3 GenerateRandomPoint(Transform area)
     {
-        
+        int spawnPointX = Random.Range(-217, 196);
+        int spawnPointY = Random.Range(-210, 220); //there has to be a better way of doing this..
+        Vector3 randomVector = new Vector3(spawnPointX, spawnPointY);
+        randomVector = area.TransformPoint(randomVector);
+        return randomVector;
     }
- 
     IEnumerator SpawnCoin(GameObject coinType, int spawnTime)
     {
         while (true)
         {
-            //Vector3 randomPos = GenerateRandomPoint();
-            Vector3 randomPos = Random.insideUnitCircle * Radius;
+            Vector3 randomPos = GenerateRandomPoint(spawnArea);
             yield return new WaitForSeconds(spawnTime);
             GameObject coin = Instantiate(coinType, randomPos, Quaternion.identity);
             coin.transform.SetParent(spawnArea);
@@ -39,6 +39,6 @@ public class CoinSpawner : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.position, Radius);
+        Gizmos.DrawWireSphere(this.transform.position, 25);
     }
 }

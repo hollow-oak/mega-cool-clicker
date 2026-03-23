@@ -5,10 +5,15 @@ using UnityEngine;
 public class CoinBronze : MonoBehaviour
 {
     CoinManager coinManager;
+    [SerializeField] GameObject obj;
+    void Start()
+    {
+        coinManager = obj.GetComponent<CoinManager>();
+    }
     public void OnClicked()
     {
         Debug.Log("Bronze Coin Clicked!!!");
-        coinManager.OnCoinClicked();
+        coinManager.AddCoin(50);
         Destroy(gameObject);
     }
 }

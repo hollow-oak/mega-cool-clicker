@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class CoinGold : MonoBehaviour
 {
+    CoinManager coinManager;
+    [SerializeField] GameObject obj;
+    void Start()
+    {
+        coinManager = obj.GetComponent<CoinManager>();
+    }
     public void OnClicked()
     {
-        Debug.Log("Gold Coin clicked!!!");
-        CoinManager.TotalCoin += 500;
+        Debug.Log("Gold Coin Clicked!!!");
+        coinManager.AddCoin(500);
         Destroy(gameObject);
     }
 }
