@@ -14,7 +14,10 @@ public class GlobalFactory : MonoBehaviour
 
     public int currentCash;
     public static int factoryValue = 100;
-    public static int factoryCount = 0;
+    public GameObject factoryStats;
+    public static int factoryCount;
+    public int factoryPerSec;
+
 
 
     void Start()
@@ -25,6 +28,7 @@ public class GlobalFactory : MonoBehaviour
     void Update()
     {
         currentCash = GlobalCash.CashCount;
+        factoryStats.GetComponent<Text>().text = factoryCount + "factories @" + factoryPerSec + " per min";
         costText.GetComponent<Text>().text = "$" + factoryValue;
         if (currentCash >= factoryValue)
         {
