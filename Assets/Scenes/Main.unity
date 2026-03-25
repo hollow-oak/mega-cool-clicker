@@ -2831,10 +2831,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 888853289}
-  boughtFactory: 0
+  CoinsPerSecond: {fileID: 0}
   purchaseSFX: {fileID: 1096384304}
   FactoryObject: {fileID: 1634176582}
   FactoryButtonText: {fileID: 605759211}
+  AutoCoin: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4362,7 +4363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: 7}
+  m_AnchoredPosition: {x: 0, y: 7}
   m_SizeDelta: {x: 0.000030518, y: 27.9742}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &888853291
@@ -4523,9 +4524,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 968588762}
+  - component: {fileID: 968588763}
   m_Layer: 0
-  m_Name: Audios
-  m_TagString: Untagged
+  m_Name: AudioManager
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4549,6 +4551,22 @@ Transform:
   - {fileID: 1464211317}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &968588763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968588761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9ffb160ce81b8448f6544fcddabf54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 1794695687}
+  singSource: {fileID: 1464211318}
+  coinSFX: {fileID: 507348078}
+  purchaseSFX: {fileID: 1096384304}
 --- !u!1 &986790403
 GameObject:
   m_ObjectHideFlags: 0
@@ -7106,7 +7124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6.639694, y: 0}
+  m_AnchoredPosition: {x: -6.6397095, y: 0}
   m_SizeDelta: {x: 28.4559, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1567342745
@@ -8510,7 +8528,6 @@ MonoBehaviour:
   buttonText: {fileID: 1330134745}
   currentCash: 0
   factoryStats: {fileID: 0}
-  factoryPerSec: 0
 --- !u!1 &1846796295
 GameObject:
   m_ObjectHideFlags: 0
@@ -10045,7 +10062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd60287d81251c94ea4d0488bd56f1ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 1572895609}
 --- !u!114 &5357722767291407000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10152,8 +10168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bcd691dc5d0ba545b1f7ec4d3b4232a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 1572895609}
-  objec: {fileID: 1714410364}
 --- !u!224 &6329462374148928202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10307,7 +10321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89d2f42375476f847b8df55f3986a595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 1572895609}
 --- !u!114 &7918236804021027887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10395,7 +10408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bd2af74c85f054e873df28c963c5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 1572895609}
 --- !u!114 &8623716987236417662
 MonoBehaviour:
   m_ObjectHideFlags: 0

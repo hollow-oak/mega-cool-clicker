@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class CoinSmall : MonoBehaviour
 {
-    CoinManager coinManager;
-    [SerializeField] GameObject obj;
-    GlobalCash globalCash;
-    [SerializeField] GameObject objec;
-    void Start()
+    AudioManager audioManager;
+
+    private void Awake()
     {
-        coinManager = obj.GetComponent<CoinManager>();
-        globalCash = objec.GetComponent<GlobalCash>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     public void OnClicked()
     {
-        Debug.Log("Bronze Coin Clicked!!!");
-        coinManager.AddCoin(10);
-        //globalCash.
+        Debug.Log("Small Coin Clicked!!!");
+        audioManager.PlaySFX(audioManager.coinSFX);
+        GlobalCash.CashCount += 10;
         Destroy(gameObject);
     }
 }

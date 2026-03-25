@@ -19,13 +19,4 @@ public class CoinManager : MonoBehaviour
     {
         TotalMoneyText.GetComponent<TextMeshProUGUI>().text = "$" + TotalCoin;
     }
-    public void OnCoinClicked()
-    {
-        AddCoin(10);
-    }
-    public void AddCoin(int amt)
-    {
-        TotalCoin += amt;
-        CoinSFX.Play();
-    }
 }

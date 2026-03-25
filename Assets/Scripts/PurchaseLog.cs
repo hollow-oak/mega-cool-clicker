@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PurchaseLog : MonoBehaviour
 {
-    public GameObject AutoCoin;
+    public GameObject AutoCoinXX;
 
-    public void StartAutoCoin()
+    public void StartAutoCoinxxxxxx()
     {
-        AutoCoin.SetActive(true);
+        AutoCoinXX.SetActive(true);
         GlobalCash.CashCount -= GlobalFactory.factoryValue;
         GlobalFactory.factoryValue *= 2;
+        GlobalFactory.factoryPerSec += 1;
+        GlobalFactory.factoryCount += 1;
     }
 }

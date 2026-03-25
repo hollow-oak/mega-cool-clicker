@@ -7,19 +7,20 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     public GameObject shopPanel;
-    public bool boughtFactory;
+    public GameObject CoinsPerSecond;
     [SerializeField] AudioSource purchaseSFX;
     CoinManager coinManager;
 
     [Header("Shop Items")]
     public GameObject FactoryObject;
     public GameObject FactoryButtonText;
-    // Start is called before the first frame update
+    
+    public GameObject AutoCoin;
+
     void Start()
     {
         shopPanel.SetActive(false);
         FactoryObject.SetActive(false);
-        boughtFactory = false;
     }
     public void OnShopClicked()
     {
@@ -29,20 +30,16 @@ public class ShopManager : MonoBehaviour
     {
         shopPanel.SetActive(false);
     }
-    public void OnFactoryBuy()
+
+    public void StartAutoCoin()
     {
-        if (boughtFactory == true)
-        {
-            
-        }
-        else
-        {
-            CoinManager.TotalCoin -= 100;
-            FactoryObject.SetActive(true); //passive coin gain starts
-            purchaseSFX.Play();
-            FactoryButtonText.GetComponent<TextMeshProUGUI>().text = "UPGRADE";
-            boughtFactory = true;
-            shopPanel.SetActive(false);
-        }
+        AutoCoin.SetActive(true);
+        FactoryObject.SetActive(true);
+        GlobalCash.CashCount -= GlobalFactory.factoryValue;
+        GlobalFactory.factoryValue *= 2;
+        GlobalFactory.factoryPerSec += 1;
+        GlobalFactory.factoryCount += 1;
+        purchaseSFX.Play();
+        CoinsPerSecond.GetComponent<TextMeshProUGUI>().text = "" + GlobalFactory.factoryPerSec;
     }
 }

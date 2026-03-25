@@ -16,8 +16,7 @@ public class GlobalFactory : MonoBehaviour
     public static int factoryValue = 100;
     public GameObject factoryStats;
     public static int factoryCount;
-    public int factoryPerSec;
-
+    public static int factoryPerSec;
 
 
     void Start()

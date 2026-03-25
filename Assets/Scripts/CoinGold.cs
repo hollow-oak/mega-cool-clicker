@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class CoinGold : MonoBehaviour
 {
-    CoinManager coinManager;
-    [SerializeField] GameObject obj;
-    void Start()
+    AudioManager audioManager;
+
+    private void Awake()
     {
-        coinManager = obj.GetComponent<CoinManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     public void OnClicked()
     {
         Debug.Log("Gold Coin Clicked!!!");
-        coinManager.AddCoin(500);
+        audioManager.PlaySFX(audioManager.coinSFX);
+        GlobalCash.CashCount += 500;
         Destroy(gameObject);
     }
 }
