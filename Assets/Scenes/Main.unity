@@ -2149,7 +2149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myMixer: {fileID: 24100000, guid: e64ea01ac19c89f47b14937d1555c642, type: 2}
   musicSlider: {fileID: 1077308813}
-  penguSlider: {fileID: 652235801}
+  singSlider: {fileID: 652235801}
   settingsPanel: {fileID: 1561733487}
 --- !u!1 &405740647
 GameObject:
@@ -5352,7 +5352,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 403049278}
         m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
-        m_MethodName: SetSingerVolume
+        m_MethodName: SetMusicVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

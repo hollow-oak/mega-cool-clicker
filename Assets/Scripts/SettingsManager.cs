@@ -8,7 +8,7 @@ public class SettingsManager : MonoBehaviour
 {
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider musicSlider;
-    [SerializeField] private Slider penguSlider;
+    [SerializeField] private Slider singSlider;
 
     public GameObject settingsPanel;
 
@@ -30,12 +30,12 @@ public class SettingsManager : MonoBehaviour
     }
     public void SetMusicVolume()
     {
-        float volume = musicSlider.value;
-        myMixer.SetFloat("music", Mathf.Log10(volume)*20);
+        float volumeBGM = musicSlider.value;
+        myMixer.SetFloat("music", Mathf.Log10(volumeBGM)*20);
     }
     public void SetSingerVolume()
     {
-        float singVolume = penguSlider.value;
+        float singVolume = singSlider.value;
         myMixer.SetFloat("singer", Mathf.Log(singVolume)*20);
     }
 }
