@@ -5,7 +5,7 @@ using UnityEngine;
 public class AutoCoin : MonoBehaviour
 {
     public bool CreatingCoin = false;
-    public static int coinIncrease = 1;
+    public static int coinIncrease = 100;
     public int InternalIncrease;
 
     void Update()

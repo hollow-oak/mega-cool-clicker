@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GlobalFactory : MonoBehaviour
 {
-    public GameObject factory;
     public GameObject buyImage;
     public GameObject buybutton;
     public GameObject costText;
-    public GameObject buttonText;
 
     public int currentCash;
     public static int factoryValue = 100;
@@ -21,14 +20,13 @@ public class GlobalFactory : MonoBehaviour
 
     void Start()
     {
-        factory.SetActive(false);
         buybutton.SetActive(false);
     }
     void Update()
     {
         currentCash = GlobalCash.CashCount;
-        factoryStats.GetComponent<Text>().text = factoryCount + "factories @" + factoryPerSec + " per min";
-        costText.GetComponent<Text>().text = "$" + factoryValue;
+        factoryStats.GetComponent<TextMeshProUGUI>().text = factoryCount + " factories @" + factoryPerSec + " per min";
+        costText.GetComponent<TextMeshProUGUI>().text = "$" + factoryValue;
         if (currentCash >= factoryValue)
         {
             buyImage.SetActive(false);

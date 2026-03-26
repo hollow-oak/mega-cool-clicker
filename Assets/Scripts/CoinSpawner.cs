@@ -20,8 +20,8 @@ public class CoinSpawner : MonoBehaviour
     }
     public Vector3 GenerateRandomPoint(Transform area)
     {
-        int spawnPointX = Random.Range(-217, 196);
-        int spawnPointY = Random.Range(-210, 220); //there has to be a better way of doing this..
+        int spawnPointX = Random.Range(-218, 218);
+        int spawnPointY = Random.Range(-235, 235); //there has to be a better way of doing this..
         Vector3 randomVector = new Vector3(spawnPointX, spawnPointY);
         randomVector = area.TransformPoint(randomVector);
         return randomVector;

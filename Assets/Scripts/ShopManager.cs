@@ -10,13 +10,18 @@ public class ShopManager : MonoBehaviour
     public GameObject CoinsPerSecond;
     [SerializeField] AudioSource purchaseSFX;
     CoinManager coinManager;
+    AudioManager audioManager;
 
     [Header("Shop Items")]
     public GameObject FactoryObject;
-    public GameObject FactoryButtonText;
     
     public GameObject AutoCoin;
 
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     void Start()
     {
         shopPanel.SetActive(false);
@@ -37,9 +42,9 @@ public class ShopManager : MonoBehaviour
         FactoryObject.SetActive(true);
         GlobalCash.CashCount -= GlobalFactory.factoryValue;
         GlobalFactory.factoryValue *= 2;
-        GlobalFactory.factoryPerSec += 1;
+        GlobalFactory.factoryPerSec += 10;
         GlobalFactory.factoryCount += 1;
-        purchaseSFX.Play();
+        audioManager.PlaySFX(audioManager.purchaseSFX);
         CoinsPerSecond.GetComponent<TextMeshProUGUI>().text = "" + GlobalFactory.factoryPerSec;
     }
 }
