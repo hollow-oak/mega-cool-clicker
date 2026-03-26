@@ -32,5 +32,10 @@ public class GlobalFactory : MonoBehaviour
             buyImage.SetActive(false);
             buybutton.SetActive(true);
         }
+        else
+        {
+            buyImage.SetActive(true);
+            buybutton.SetActive(false);
+        }
     }
 }
